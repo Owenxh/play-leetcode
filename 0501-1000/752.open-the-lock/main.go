@@ -36,11 +36,10 @@ func bfs(visited map[string]bool, target string) int {
 		for i, b := range s {
 			s[i] = ((b - 48 + 1) % 10) + 48
 			next[j] = string(s)
-			j++
 			s[i] = ((b - 48 + 9) % 10) + 48
-			next[j] = string(s)
-			j++
+			next[j+1] = string(s)
 			s[i] = b
+			j += 2
 		}
 
 		for _, w := range next {

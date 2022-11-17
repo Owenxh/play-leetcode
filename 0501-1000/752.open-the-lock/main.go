@@ -34,10 +34,18 @@ func bfs(visited map[string]bool, target string) int {
 		var j int
 		s := []byte(v)
 		for i, b := range s {
-			s[i] = ((b - 48 + 1) % 10) + 48
+			// ① 第一种方式
+			s[i] = ((b - '0' + 1) % 10) + '0'
 			next[j] = string(s)
-			s[i] = ((b - 48 + 9) % 10) + 48
+			s[i] = ((b - '0' + 9) % 10) + '0'
 			next[j+1] = string(s)
+
+			// ② 第二种方式
+			//s[i] = ((b - 48 + 1) % 10) + 48
+			//next[j] = string(s)
+			//s[i] = ((b - 48 + 9) % 10) + 48
+			//next[j+1] = string(s)
+
 			s[i] = b
 			j += 2
 		}

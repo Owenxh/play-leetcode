@@ -1,4 +1,4 @@
-package main
+package dfs
 
 type graph struct {
 	G [][]int
